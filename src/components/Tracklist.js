@@ -6,15 +6,75 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
   console.log(json, fetching, error);
 
   if (error) {
-    return <div>{error}</div>;
+    console.log({ error });
+    // return <div>{error}</div>;
+    return (
+      <>
+        <h1 className="NameTracklist">Search Results</h1>
+        <div>
+          <table className="table table-striped table-dark tracklistTable">
+            <thead>
+              <tr>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Album</th>
+                {/* <th>uri</th> */}
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </>
+    );
   }
 
   if (fetching) {
-    return <div>Loading...</div>;
+    console.log("Loading...");
+    // return <div>Loading...</div>;
+    return (
+      <>
+        <h1 className="NameTracklist">Search Results</h1>
+        <div>
+          <table className="table table-striped table-dark tracklistTable">
+            <thead>
+              <tr>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Album</th>
+                {/* <th>uri</th> */}
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </>
+    );
   }
 
   if (!json) {
-    return <div>no data for some reason</div>;
+    console.log("no data for some reason");
+    // return <div>no data for some reason</div>;
+    return (
+      <>
+        <h1 className="NameTracklist">Search Results</h1>
+        <div>
+          <table className="table table-striped table-dark tracklistTable">
+            <thead>
+              <tr>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Album</th>
+                {/* <th>uri</th> */}
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </>
+    );
   }
 
   let list = [];
@@ -47,8 +107,7 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
 
   return (
     <>
-      <h1 className="NameTracklist">Tracklist</h1>
-      {/* <h1>Tracklist (searching for {searchQuery})</h1> */}
+      <h1 className="NameTracklist">Search Results</h1>
       <div>
         <table className="table table-striped table-dark tracklistTable">
           <thead>

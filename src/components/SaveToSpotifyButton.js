@@ -65,7 +65,7 @@ function SaveToSpotifyButton({ tracks, playlistname }) {
       className="saveButton btn btn-outline-success my-2 my-sm-0"
       onClick={handleClick}
     >
-      Save "{playlistname}" To Spotify
+      Save {playlistname} To Spotify
     </button>
   );
 }
