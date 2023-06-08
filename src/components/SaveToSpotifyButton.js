@@ -2,9 +2,9 @@ import React from "react";
 import useUserId from "../hooks/useUserId";
 import { findAccessToken } from "../util/getToken";
 
-function SaveToSpotifyButton({ tracks, playlistname}) {
-  const { error, fetching, json } = useUserId();
-  
+function SaveToSpotifyButton({ tracks, playlistname }) {
+  const { json } = useUserId();
+
   // console.log(json, fetching, error);
 
   async function handleClick() {

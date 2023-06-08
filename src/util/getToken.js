@@ -18,9 +18,9 @@ export default function SignInButton() {
   const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${data.clientId}&redirect_uri=${data.redirectUri}&scope=playlist-modify-public,playlist-modify-private`;
   const accessToken = findAccessToken();
 
-  function handleClick() {
-    return <a href={url}>Sign into Spotify</a>;
-  }
+  // function handleClick() {
+  //   return <a href={url}>Sign into Spotify</a>;
+  // }
 
   if (accessToken) {
     return <div className="signin">You are logged in!</div>;
