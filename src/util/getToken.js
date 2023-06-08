@@ -11,7 +11,7 @@ console.log(findAccessToken);
 
 export const data = {
   clientId: "8a925bdbdc514eb3bc6c8f1223aaa83f",
-  redirectUri: "http://localhost:3000/",
+  redirectUri: window.location,
 };
 
 export default function SignInButton() {
