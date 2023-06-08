@@ -5,6 +5,8 @@ import SearchBar from "./components/SearchBar";
 import Playlist from "./components/Playlist";
 import Tracklist from "./components/Tracklist";
 import SignInButton from "./util/getToken";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -32,10 +34,11 @@ function App() {
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </nav>
       <main className="main">
-          <Tracklist searchQuery={searchQuery} addToPlaylist={addToPlaylist} />
-          <Playlist tracks={tracks} removeFromPlaylist={removeFromPlaylist} />
+        <Tracklist searchQuery={searchQuery} addToPlaylist={addToPlaylist} />
+        <Playlist tracks={tracks} removeFromPlaylist={removeFromPlaylist} />
       </main>
       <footer>{/* <Track /> */}</footer>
+      <ToastContainer />
     </div>
   );
 }

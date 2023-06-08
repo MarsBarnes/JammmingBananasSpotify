@@ -1,13 +1,21 @@
 import React from "react";
 import useUserId from "../hooks/useUserId";
 import { findAccessToken } from "../util/getToken";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+//www.npmjs.com/package/react-toastify   this is the link for the toast
 
-function SaveToSpotifyButton({ tracks, playlistname }) {
+https: function SaveToSpotifyButton({ tracks, playlistname }) {
   const { json } = useUserId();
 
   // console.log(json, fetching, error);
 
   async function handleClick() {
+    if (!playlistname) {
+      toast("Add a playlist name to save it");
+      return;
+    }
+    console.log("did i get here");
     const userId = json.id;
     console.log(userId);
     const accessToken = findAccessToken();
