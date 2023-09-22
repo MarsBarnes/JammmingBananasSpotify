@@ -50,6 +50,7 @@ function SaveToSpotifyButton({ tracks, playlistname }) {
         }),
       }
     );
+    console.log(res2)
   }
 
   return (
