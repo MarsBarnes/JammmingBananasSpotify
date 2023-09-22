@@ -19,7 +19,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
     setSearchButtonClicked(false); // Reset the search button state after update
     const accessToken = findAccessToken();
     if (!accessToken) {
-      toast("Sign into Spotify to save playlist");
+      toast("Sign into Spotify to search");
     }
   };
 
