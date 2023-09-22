@@ -12,6 +12,7 @@ const Playlist = ({ tracks, removeFromPlaylist }) => {
       <td>{item.trackName.replace(/["]+/g, "")}</td>
       <td>{item.artistName.replace(/["]+/g, "")}</td>
       <td>{item.albumName.replace(/["]+/g, "")}</td>
+      {/* uncomment line below to get uri to display  */}
       {/* <td>{item.uri}</td> */}
       <td>
         <button

@@ -3,12 +3,10 @@ import useUserId from "../hooks/useUserId";
 import { findAccessToken } from "../util/getToken";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//www.npmjs.com/package/react-toastify   this is the link for the toast
+//www.npmjs.com/package/react-toastify   this is the link for the toast docs
 
 function SaveToSpotifyButton({ tracks, playlistname }) {
   const { json } = useUserId();
-
-  // console.log(json, fetching, error);
 
   async function handleClick() {
     if (!playlistname) {
@@ -29,7 +27,6 @@ function SaveToSpotifyButton({ tracks, playlistname }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          // TODO:Replace IDIDIT with playlist name from NamePlaylist here
           name: playlistname,
           description: "New playlist description",
           public: false,
@@ -53,7 +50,6 @@ function SaveToSpotifyButton({ tracks, playlistname }) {
           Authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json",
         },
-        // TODO: lookinto how he numbers below work
         body: JSON.stringify({
           range_start: 1,
           insert_before: 3,

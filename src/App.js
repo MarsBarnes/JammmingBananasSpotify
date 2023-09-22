@@ -30,6 +30,18 @@ function App() {
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
         <h3 className="p-2 flex-grow-1 bd-highlight leftaligntext">Jammming</h3>
+        <a
+          href="https://marsbarnes.github.io/Portfolio/"
+          class="styled-element"
+        >
+          To Mars' Portfolio
+        </a>
+        <a
+          href="https://github.com/MarsBarnes/Cozzzy-Cafe"
+          class="styled-element"
+        >
+          To GitHub Repository
+        </a>
         <SignInButton />
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </nav>

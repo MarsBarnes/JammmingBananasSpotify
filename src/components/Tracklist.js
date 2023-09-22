@@ -7,7 +7,6 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
 
   if (error) {
     console.log({ error });
-    // return <div>{error}</div>;
     return (
       <>
         <h1 className="NameTracklist">Search Results</h1>
@@ -18,6 +17,7 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
                 <th>Song</th>
                 <th>Artist</th>
                 <th>Album</th>
+                {/* uncomment line below to display song uri */}
                 {/* <th>uri</th> */}
                 <th></th>
               </tr>
@@ -31,7 +31,6 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
 
   if (fetching) {
     console.log("Loading...");
-    // return <div>Loading...</div>;
     return (
       <>
         <h1 className="NameTracklist">Search Results</h1>
@@ -42,6 +41,7 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
                 <th>Song</th>
                 <th>Artist</th>
                 <th>Album</th>
+                {/* uncomment line below to display song uri */}
                 {/* <th>uri</th> */}
                 <th></th>
               </tr>
@@ -55,7 +55,6 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
 
   if (!json) {
     console.log("no data for some reason");
-    // return <div>no data for some reason</div>;
     return (
       <>
         <h1 className="NameTracklist">Search Results</h1>
@@ -86,13 +85,13 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
     let id = JSON.stringify(item.id);
     let uri = JSON.stringify(item.uri);
     list.push({ trackName, artistName, albumName, id, uri });
-    // console.log(list)
   }
   const resultList = list.map((item) => (
     <tr key={item.id}>
       <td>{item.trackName.replace(/["]+/g, "")}</td>
       <td>{item.artistName.replace(/["]+/g, "")}</td>
       <td>{item.albumName.replace(/["]+/g, "")}</td>
+      {/* uncomment line below to display song uri */}
       {/* <td>{item.uri}</td> */}
       <td>
         <button
@@ -115,6 +114,7 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
               <th>Song</th>
               <th>Artist</th>
               <th>Album</th>
+              {/* uncomment line below to display song uri */}
               {/* <th>uri</th> */}
               <th></th>
             </tr>

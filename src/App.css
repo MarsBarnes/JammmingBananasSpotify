@@ -6,21 +6,6 @@ Body {
   color: #0d6efd;
 }
 
-/* .main {
-  display: flex;
-  padding: 10px;
-} */
-
-/* .left {
-  flex: 50%;
-  padding: 10px;
-}
-
-.right {
-  flex: 50%;
-  padding: 10px;
-} */
-
 main {
   display: grid;
   padding: 10px;
@@ -65,23 +50,11 @@ button {
   padding: 8px;
 }
 
-/* .NamePlaylist{
-  color: #0d6efd;
-  background-color: none;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #000000;
-  outline:none;
-  box-shadow:none;
-
-} */
-
 .NamePlaylist input[type="text"] {
   color: #0d6efd;
   background-color: none;
   background: transparent;
   border: none;
-  /* border-bottom: 1px solid #000000; */
   outline: none;
   box-shadow: none;
   text-align: center;
@@ -101,7 +74,6 @@ button {
   margin: auto;
 }
 
-/* The alert message box */
 .alert {
   padding: 20px;
   background-color: #f44336; /* Red */
@@ -109,7 +81,6 @@ button {
   margin-bottom: 15px;
 }
 
-/* The close button */
 .closebtn {
   margin-left: 15px;
   color: white;
@@ -121,7 +92,19 @@ button {
   transition: 0.3s;
 }
 
-/* When moving the mouse over the close button */
 .closebtn:hover {
   color: black;
 }
+
+.styled-element {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px; 
+      margin: 10px;
+    }

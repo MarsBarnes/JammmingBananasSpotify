@@ -19,7 +19,6 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter" || searchButtonClicked) {
-      // Get input value
       setSearchQuery(messageBeingTyped);
     }
   };

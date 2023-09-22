@@ -16,7 +16,7 @@ export const useSearchResults = (searchQuery) => {
       {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${token}`, // Replace with your actual access token
+          Authorization: `Bearer ${token}`, 
         },
       }
     )
