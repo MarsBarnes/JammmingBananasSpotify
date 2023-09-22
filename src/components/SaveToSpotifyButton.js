@@ -13,11 +13,8 @@ function SaveToSpotifyButton({ tracks, playlistname }) {
       toast("Add a playlist name to save it");
       return;
     }
-    console.log("did i get here");
     const userId = json.id;
-    console.log(userId);
     const accessToken = findAccessToken();
-    console.log(accessToken);
     const res = await fetch(
       `https://api.spotify.com/v1/users/${userId}/playlists`,
       {
@@ -34,13 +31,9 @@ function SaveToSpotifyButton({ tracks, playlistname }) {
       }
     );
 
-    console.log(res.status);
     const json2 = await res.json();
-    console.log(`playlist id: ${json2.id}`);
-    console.log({ tracks });
 
     const uris = tracks.map((item) => item.uri.replace(/["]+/g, ""));
-    console.log(`uris i am asking for : ${uris}`);
 
     const res2 = await fetch(
       `https://api.spotify.com/v1/playlists/${json2.id}/tracks?uris=${uris}`,
@@ -57,10 +50,6 @@ function SaveToSpotifyButton({ tracks, playlistname }) {
         }),
       }
     );
-
-    console.log(res2.status);
-    const json3 = await res2.json();
-    console.log(json3);
   }
 
   return (

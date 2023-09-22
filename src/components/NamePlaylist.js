@@ -6,10 +6,8 @@ export default function NamePlaylist({playlistname, setplaylistname}) {
 
   function handleChange(event) {
     setplaylistname(event.target.value);
-    console.log(playlistname);
   }
   function handleClick() {
-    console.log("clicked");
     inputRef.current.focus();
   }
 

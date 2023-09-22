@@ -3,10 +3,8 @@ import { useSearchResults } from "../hooks/useSearchResults";
 
 const Tracklist = ({ searchQuery, addToPlaylist }) => {
   const { error, fetching, json } = useSearchResults(searchQuery);
-  console.log(json, fetching, error);
 
   if (error) {
-    console.log({ error });
     return (
       <>
         <h1 className="NameTracklist">Search Results</h1>
@@ -17,7 +15,6 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
                 <th>Song</th>
                 <th>Artist</th>
                 <th>Album</th>
-                {/* uncomment line below to display song uri */}
                 {/* <th>uri</th> */}
                 <th></th>
               </tr>
@@ -30,7 +27,6 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
   }
 
   if (fetching) {
-    console.log("Loading...");
     return (
       <>
         <h1 className="NameTracklist">Search Results</h1>
@@ -41,7 +37,6 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
                 <th>Song</th>
                 <th>Artist</th>
                 <th>Album</th>
-                {/* uncomment line below to display song uri */}
                 {/* <th>uri</th> */}
                 <th></th>
               </tr>
@@ -54,7 +49,6 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
   }
 
   if (!json) {
-    console.log("no data for some reason");
     return (
       <>
         <h1 className="NameTracklist">Search Results</h1>
@@ -91,7 +85,6 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
       <td>{item.trackName.replace(/["]+/g, "")}</td>
       <td>{item.artistName.replace(/["]+/g, "")}</td>
       <td>{item.albumName.replace(/["]+/g, "")}</td>
-      {/* uncomment line below to display song uri */}
       {/* <td>{item.uri}</td> */}
       <td>
         <button
@@ -114,7 +107,6 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
               <th>Song</th>
               <th>Artist</th>
               <th>Album</th>
-              {/* uncomment line below to display song uri */}
               {/* <th>uri</th> */}
               <th></th>
             </tr>

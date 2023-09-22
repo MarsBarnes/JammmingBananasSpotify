@@ -7,8 +7,6 @@ export function findAccessToken() {
   }
 }
 
-console.log(findAccessToken);
-
 export const data = {
   clientId: "8a925bdbdc514eb3bc6c8f1223aaa83f",
   redirectUri: window.location,
@@ -17,10 +15,6 @@ export const data = {
 export default function SignInButton() {
   const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${data.clientId}&redirect_uri=${data.redirectUri}&scope=playlist-modify-public,playlist-modify-private`;
   const accessToken = findAccessToken();
-
-  // function handleClick() {
-  //   return <a href={url}>Sign into Spotify</a>;
-  // }
 
   if (accessToken) {
     return <div className="signin">You are logged in!</div>;
@@ -34,9 +28,3 @@ export default function SignInButton() {
     );
   }
 }
-
-// <div>
-//   <a className="btn btn-primary" href={url}>
-//     Sign into Spotify
-//   </a>
-// </div>;

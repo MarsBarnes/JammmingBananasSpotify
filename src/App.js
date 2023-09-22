@@ -13,7 +13,6 @@ function App() {
   const [tracks, setTracks] = useState([]);
 
   const addToPlaylist = (track) => {
-    console.log("addToPlaylist", track);
     setTracks((prevTracks) => [...prevTracks, track]);
   };
 
@@ -49,7 +48,6 @@ function App() {
         <Tracklist searchQuery={searchQuery} addToPlaylist={addToPlaylist} />
         <Playlist tracks={tracks} removeFromPlaylist={removeFromPlaylist} />
       </main>
-      <footer>{/* <Track /> */}</footer>
       <ToastContainer />
     </div>
   );

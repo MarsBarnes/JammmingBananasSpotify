@@ -3,7 +3,6 @@ import NamePlaylist from "./NamePlaylist";
 import SaveToSpotifyButton from "./SaveToSpotifyButton";
 
 const Playlist = ({ tracks, removeFromPlaylist }) => {
-  console.log({ tracks });
 
   const [playlistname, setplaylistname] = React.useState("");
 
@@ -12,7 +11,6 @@ const Playlist = ({ tracks, removeFromPlaylist }) => {
       <td>{item.trackName.replace(/["]+/g, "")}</td>
       <td>{item.artistName.replace(/["]+/g, "")}</td>
       <td>{item.albumName.replace(/["]+/g, "")}</td>
-      {/* uncomment line below to get uri to display  */}
       {/* <td>{item.uri}</td> */}
       <td>
         <button
