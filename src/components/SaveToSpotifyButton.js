@@ -9,12 +9,19 @@ function SaveToSpotifyButton({ tracks, playlistname }) {
   const { json } = useUserId();
 
   async function handleClick() {
+    
+    const accessToken = findAccessToken();
+
+    if (!accessToken) {
+      toast("Sign into Spotify to save playlist");
+      return;
+    }
     if (!playlistname) {
       toast("Add a playlist name to save it");
       return;
     }
     const userId = json.id;
-    const accessToken = findAccessToken();
+
     const res = await fetch(
       `https://api.spotify.com/v1/users/${userId}/playlists`,
       {
@@ -50,7 +57,12 @@ function SaveToSpotifyButton({ tracks, playlistname }) {
         }),
       }
     );
-    console.log(res2)
+
+    if (res2.ok) {
+      toast("Playlist created successfully!")
+    } else {
+      toast("An error occured, try to save your playlist again.")
+    }
   }
 
   return (
