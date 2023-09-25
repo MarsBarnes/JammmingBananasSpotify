@@ -1,8 +1,13 @@
 # Jammming Bananas Spotify Playlist Creator
-#### Create a Playlist Here: https://jammmingbananas.netlify.app/
-#### To Run: cd into jammming, npm i, npm run start
-
 Welcome to the Jammming Bananas Spotify Playlist Creator! This web application allows you to easily create and manage Spotify playlists. With a few simple steps, you can add your favorite songs to a playlist and save it directly to your Spotify account.
+
+#### Create a Playlist Here: https://jammmingbananas.netlify.app/
+
+## Run Instuctions
+1. cd into jammming
+2. npm install
+3. npm run start
+
 
 ## Usage
 1. Click the "Sign into Spotify" button to log in with your Spotify account. This will grant the application permission to access and alter your Spotify data.
