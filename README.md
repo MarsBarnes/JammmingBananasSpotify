@@ -19,6 +19,6 @@ Welcome to the Jammming Bananas Spotify Playlist Creator! This web application a
 7. Click the "Save to Spotify" button to add your new playlist to your Spotify account.
 
 ## Compatibility
-This project works best on a laptop or desktop. In the future, we plan to add web design responsiveness to enable use on mobile devices.
+This project works best on a laptop or desktop. In the future, I plan to add web design responsiveness to enable use on mobile devices.
 
 If you need any further information or assistance, please feel free to reach out. Enjoy creating your Spotify playlists with Jammming Bananas!
