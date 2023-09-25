@@ -66,14 +66,6 @@ button {
   background-color: none;
 }
 
-/* .saveButton {
-  background-color: #0d6efd;
-  border-color: none;
-  color: white;
-  border-radius: 10px;
-  margin: auto;
-} */
-
 .alert {
   padding: 20px;
   background-color: #f44336;
@@ -96,7 +88,7 @@ button {
   color: black;
 }
 
-.styled-element {
+.links {
   display: inline-block;
   padding: 10px 20px;
   color: #fff;
@@ -107,12 +99,41 @@ button {
   border-radius: 5px;
   margin: 10px;
   background-color: #0d6efd;
-  border-color: none;
   color: white;
   border-radius: 10px;
 }
+
 .newSignIn {
-  /* font-weight: bold; */
-  /* background-color: #0dcaf0; */
-  /* TODO: make this button different from portfolio and repo buttons */
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 10px;
+  /* spotify brand green color used here  */
+  background-color:	#1DB954;
+  color: black;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.newSignIn:hover {
+background-color: #1ed760;
+}
+
+.saveButton {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 10px;
 }

@@ -68,7 +68,7 @@ function SaveToSpotifyButton({ tracks, playlistname }) {
   return (
     <button
       type="button"
-      className="styled-element saveButton btn btn-info btn-outline-success my-2 my-sm-0"
+      className="saveButton btn btn-info btn-outline-success my-2 my-sm-0"
       onClick={handleClick}
     >
       Save {playlistname} To Spotify

@@ -31,13 +31,13 @@ function App() {
         <h3 className="p-2 flex-grow-1 bd-highlight leftaligntext">Jammming</h3>
         <a
           href="https://marsbarnes.github.io/Portfolio/"
-          className="styled-element saveButton btn btn-outline-success my-2 my-sm-0"
+          className="links saveButton btn btn-outline-success my-2 my-sm-0"
         >
           To Mars' Portfolio
         </a>
         <a
-          href="https://github.com/MarsBarnes/Cozzzy-Cafe"
-          className="styled-element saveButton btn btn-outline-success my-2 my-sm-0"
+          href="https://github.com/MarsBarnes/JammmingBananasSpotify"
+          className="links saveButton btn btn-outline-success my-2 my-sm-0"
         >
           To GitHub Repository
         </a>

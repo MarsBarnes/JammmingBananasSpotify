@@ -21,9 +21,8 @@ export default function SignInButton() {
   } else {
     return (
       <div>
-        {/* <a className="nav-link p-2 bd-highlight signin" href={url}> */}
         <a
-          className="styled-element saveButton btn btn-info btn-outline-success my-2 my-sm-0 newSignIn"
+          className="btn btn-info btn-outline-success my-2 my-sm-0 newSignIn"
           href={url}
         >
           Sign into Spotify
