@@ -3,7 +3,7 @@ import { useState } from "react";
 import { findAccessToken } from "../util/getToken";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//USED THIS WEBSITE TO HELP BUILD THE SearchBar COMPONENT  https://codingbeautydev.com/blog/react-get-input-value-on-enter/
+//resource used to help build SearchBar component  https://codingbeautydev.com/blog/react-get-input-value-on-enter/
 
 const SearchBar = ({ searchQuery, setSearchQuery }) => {
   
