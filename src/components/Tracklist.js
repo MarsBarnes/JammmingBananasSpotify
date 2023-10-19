@@ -1,107 +1,81 @@
 import React from "react";
 import { useSearchResults } from "../hooks/useSearchResults";
+import SearchBar from "./SearchBar";
 
-const Tracklist = ({ searchQuery, addToPlaylist }) => {
-  const { error, fetching, json } = useSearchResults(searchQuery);
+const Tracklist = ({ setSearchQuery, searchQuery, addToPlaylist }) => {
+  // const { error, fetching, json } = useSearchResults(searchQuery);
+  const { json } = useSearchResults(searchQuery);
 
-  if (error) {
-    return (
-      <>
-        <h1 className="NameTracklist">Search Results</h1>
-        <div>
-          <table className="table table-striped table-dark tracklistTable">
-            <thead>
-              <tr>
-                <th>Song</th>
-                <th>Artist</th>
-                <th>Album</th>
-                {/* <th>uri</th> */}
-                <th></th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </>
-    );
-  }
+  // if (fetching || !json) {
+  //   return (
+  //     <>
+  //       <div className="flexSearch">
+  //         {error ? (
+  //           <h1 className="NameTracklist">Search</h1>
+  //         ) : (
+  //           <h1 className="NameTracklist">Search Results</h1>
+  //         )}
+  //         <SearchBar
+  //           searchQuery={searchQuery}
+  //           setSearchQuery={setSearchQuery}
+  //         />
+  //       </div>
+  //       <div>
+  //         <table className="table table-striped table-dark tracklistTable">
+  //           <thead>
+  //             <tr>
+  //               <th>Song</th>
+  //               <th>Artist</th>
+  //               <th>Album</th>
+  //               {/* <th>uri</th> */}
+  //               <th></th>
+  //             </tr>
+  //           </thead>
+  //           <tbody></tbody>
+  //         </table>
+  //       </div>
+  //     </>
+  //   );
+  // }
 
-  if (fetching) {
-    return (
-      <>
-        <h1 className="NameTracklist">Search Results</h1>
-        <div>
-          <table className="table table-striped table-dark tracklistTable">
-            <thead>
-              <tr>
-                <th>Song</th>
-                <th>Artist</th>
-                <th>Album</th>
-                {/* <th>uri</th> */}
-                <th></th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </>
-    );
-  }
-
-  if (!json) {
-    return (
-      <>
-        <h1 className="NameTracklist">Search Results</h1>
-        <div>
-          <table className="table table-striped table-dark tracklistTable">
-            <thead>
-              <tr>
-                <th>Song</th>
-                <th>Artist</th>
-                <th>Album</th>
-                {/* <th>uri</th> */}
-                <th></th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </>
-    );
-  }
 
   let list = [];
+  let resultList = []
 
-  for (const item of json.tracks.items) {
-    let trackName = JSON.stringify(item.name);
-    let artistName = JSON.stringify(item.artists[0].name);
-    let albumName = JSON.stringify(item.album.name);
-    let id = JSON.stringify(item.id);
-    let uri = JSON.stringify(item.uri);
-    list.push({ trackName, artistName, albumName, id, uri });
-  }
-  const resultList = list.map((item) => (
-    <tr key={item.id}>
-      <td>{item.trackName.replace(/["]+/g, "")}</td>
-      <td>{item.artistName.replace(/["]+/g, "")}</td>
-      <td>{item.albumName.replace(/["]+/g, "")}</td>
-      {/* <td>{item.uri}</td> */}
-      <td>
-        <button
-          className="btn btn-outline-success my-2 my-sm-0"
-          onClick={() => addToPlaylist(item)}
-        >
-          Add
-        </button>
-      </td>
-    </tr>
-  ));
+  if (json?.tracks.items) { 
+    for (const item of json.tracks.items) {
+      let trackName = JSON.stringify(item.name);
+      let artistName = JSON.stringify(item.artists[0].name);
+      let albumName = JSON.stringify(item.album.name);
+      let id = JSON.stringify(item.id);
+      let uri = JSON.stringify(item.uri);
+      list.push({ trackName, artistName, albumName, id, uri });
+    }
+    resultList = list.map((item) => (
+      <tr key={item.id}>
+        <td>{item.trackName.replace(/["]+/g, "")}</td>
+        <td>{item.artistName.replace(/["]+/g, "")}</td>
+        <td>{item.albumName.replace(/["]+/g, "")}</td>
+        {/* <td>{item.uri}</td> */}
+        <td>
+          <button
+            className="greyBtn"
+            onClick={() => addToPlaylist(item)}
+          >
+            Add
+          </button>
+        </td>
+      </tr>
+    ));
+}
 
   return (
     <>
-      <h1 className="NameTracklist">Search Results</h1>
-      <div>
-        <table className="table table-striped table-dark tracklistTable">
+      <div className="NameTracklist">
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      </div>
+      <div className="tracklistTable">
+        <table className="table table-striped table-dark">
           <thead>
             <tr>
               <th>Song</th>
@@ -111,7 +85,8 @@ const Tracklist = ({ searchQuery, addToPlaylist }) => {
               <th></th>
             </tr>
           </thead>
-          <tbody>{resultList}</tbody>
+          {resultList ? <tbody>{resultList}</tbody> : <></>}
+          {/* <tbody>{resultList}</tbody> */}
         </table>
       </div>
     </>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./App.css";
-import SearchBar from "./components/SearchBar";
+// import SearchBar from "./components/SearchBar";
 import Playlist from "./components/Playlist";
 import Tracklist from "./components/Tracklist";
 import SignInButton from "./util/getToken";
@@ -31,21 +31,25 @@ function App() {
         <h3 className="p-2 flex-grow-1 bd-highlight leftaligntext">Jammming</h3>
         <a
           href="https://marsbarnes.github.io/Portfolio/"
-          className="links saveButton btn btn-outline-success my-2 my-sm-0"
+          className="links greyBtn"
         >
           To Mars' Portfolio
         </a>
         <a
           href="https://github.com/MarsBarnes/JammmingBananasSpotify"
-          className="links saveButton btn btn-outline-success my-2 my-sm-0"
+          className="links greyBtn"
         >
           To GitHub Repository
         </a>
         <SignInButton />
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        {/* <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} /> */}
       </nav>
       <main className="main">
-        <Tracklist searchQuery={searchQuery} addToPlaylist={addToPlaylist} />
+        <Tracklist
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          addToPlaylist={addToPlaylist}
+        />
         <Playlist tracks={tracks} removeFromPlaylist={removeFromPlaylist} />
       </main>
       <ToastContainer />

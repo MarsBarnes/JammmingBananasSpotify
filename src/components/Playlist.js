@@ -13,10 +13,7 @@ const Playlist = ({ tracks, removeFromPlaylist }) => {
       <td>{item.albumName.replace(/["]+/g, "")}</td>
       {/* <td>{item.uri}</td> */}
       <td>
-        <button
-          className="btn btn-outline-success my-2 my-sm-0"
-          onClick={() => removeFromPlaylist(item)}
-        >
+        <button className="greyBtn" onClick={() => removeFromPlaylist(item)}>
           Remove
         </button>
       </td>
@@ -25,9 +22,14 @@ const Playlist = ({ tracks, removeFromPlaylist }) => {
 
   return (
     <>
-      <NamePlaylist playlistname={playlistname} setplaylistname={setplaylistname} />
-      <div>
-        <table className="table table-striped table-dark playlistTable">
+      <div className="NamePlaylist">
+        <NamePlaylist
+          playlistname={playlistname}
+          setplaylistname={setplaylistname}
+        />
+      </div>
+      <div className="playlistTable">
+        <table className="table table-striped table-dark">
           <thead>
             <tr>
               <th>Song</th>

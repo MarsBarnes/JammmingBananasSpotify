@@ -1,11 +1,18 @@
-Body {
-  text-align: center;
-  background-image: url("./bananasPattern.webp");
+/* GLOBAL STYLES */
+html {
   width: 100%;
-  height: 100%;
-  color: #0d6efd;
 }
-
+body {
+  text-align: center;
+  /* background-image: url("./bananasPattern.webp"); */
+  background-image: linear-gradient(#00bbe0, #020024);
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+}
 main {
   display: grid;
   padding: 10px;
@@ -14,65 +21,130 @@ main {
   grid-gap: 10px;
 }
 
+.navbar {
+  width: 100vw;
+}
+
+/* GRID STYLES  */
 .NameTracklist {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+  margin: auto;
 }
-
 .NamePlaylist {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
+  margin: auto;
 }
-
 .tracklistTable {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
 }
-
 .playlistTable {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
 }
 
+/* NAV STYLES  */
 .leftaligntext {
   text-align: left;
 }
-
-form {
+/* form {
   padding: 8px;
+} */
+
+/* BUTTON STYLES  */
+.greyBtn {
+  padding: 8px;
+  color: white;
+  background-color: #5c5c5c;
+  border-style: none;
+  border-radius: 100px;
 }
-
-button {
-  padding: 8px;
+.greyBtn:hover {
+  background-color: #8a8a8a;
+  border-color: #8a8a8a;
+}
+.links {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 10px;
+}
+.newSignIn {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  /* spotify brand green color used here  */
+  background-color: #1db954;
+  color: black;
+  font-weight: bold;
+  border-radius: 100px;
+  padding: 10px 20px;
+}
+.newSignIn:hover {
+  background-color: #1ed760;
 }
 
 .signin {
-  padding: 8px;
+  margin: 10px;
 }
-
-.NamePlaylist input[type="text"] {
-  color: #0d6efd;
-  background-color: none;
-  background: transparent;
+.saveButton {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
   border: none;
-  outline: none;
-  box-shadow: none;
-  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+}
+.nameBtn {
+  border-radius: 0 100px 100px 0;
+  border-color: #28242c;
+  border-style: solid solid solid none;
+  margin-left: 0;
 }
 
-.NamePlaylist input::placeholder {
-  color: #0d6efd;
-  opacity: 50%;
-  background-color: none;
+.nameBtn:hover {
+  border-radius: 0 100px 100px 0;
+  border-color: #28242c;
+  border-style: solid solid solid none;
+  margin-left: 0;
 }
 
+/* INPUT STYLES  */
+input {
+  color: #28242c;
+  border-radius: 100px 0 0 100px;
+  border-color: #28242c;
+  border-style: solid;
+  /* width: 320px; */
+
+  margin-right: 0;
+}
+
+input:focus {
+  outline-width: 0;
+}
+
+/* search */
+/* .flexSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* TOAST STYLES  */
 .alert {
   padding: 20px;
   background-color: #f44336;
   color: white;
   margin-bottom: 15px;
 }
-
 .closebtn {
   margin-left: 15px;
   color: white;
@@ -83,57 +155,43 @@ button {
   cursor: pointer;
   transition: 0.3s;
 }
-
 .closebtn:hover {
   color: black;
 }
 
-.links {
-  display: inline-block;
-  padding: 10px 20px;
-  color: #fff;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
-  margin: 10px;
-  background-color: #0d6efd;
-  color: white;
-  border-radius: 10px;
+/* responsivity */
+
+@media screen and (max-width: 800px) {
+  main {
+    display: block;
+    width: 100vw;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+  .links {
+    margin-bottom: 10px;
+  }
+  .NameTracklist {
+    margin-bottom: 10px;
+    max-width: max-content;
+  }
+  .NamePlaylist {
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+  .tracklistTable .playlistTable {
+    margin: auto;
+  }
+  input {
+    max-width: 80vw;
+    margin: 0;
+  }
+  .nameBtn {
+    max-width: 20vw;
+    margin: 0;
+  }
+
 }
 
-.newSignIn {
-  display: inline-block;
-  padding: 10px 20px;
-  color: #fff;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
-  margin: 10px;
-  /* spotify brand green color used here  */
-  background-color:	#1DB954;
-  color: black;
-  border-radius: 10px;
-  font-weight: bold;
-}
-.newSignIn:hover {
-background-color: #1ed760;
-}
-
-.saveButton {
-  display: inline-block;
-  padding: 10px 20px;
-  color: #fff;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
-  margin: 10px;
-  background-color: #0d6efd;
-  color: white;
-  border-radius: 10px;
-}

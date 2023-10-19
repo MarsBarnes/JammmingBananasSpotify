@@ -21,10 +21,7 @@ export default function SignInButton() {
   } else {
     return (
       <div>
-        <a
-          className="btn btn-info btn-outline-success my-2 my-sm-0 newSignIn"
-          href={url}
-        >
+        <a className="newSignIn" href={url}>
           Sign into Spotify
         </a>
       </div>

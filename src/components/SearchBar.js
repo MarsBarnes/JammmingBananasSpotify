@@ -34,7 +34,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
   };
 
   return (
-    <div className="form-inline">
+    <div >
       <input
         type="text"
         id="messageBeingTyped"
@@ -47,7 +47,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
       />
       <button
         type="button"
-        className="btn btn-outline-success my-2 my-sm-0"
+        className="nameBtn greyBtn"
         onClick={handleSearchButtonClick}
       >
         Search
