@@ -1,6 +1,8 @@
 import React from "react";
 import { useSearchResults } from "../hooks/useSearchResults";
 import SearchBar from "./SearchBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Tracklist = ({ setSearchQuery, searchQuery, addToPlaylist }) => {
   // const { error, fetching, json } = useSearchResults(searchQuery);
@@ -58,11 +60,8 @@ const Tracklist = ({ setSearchQuery, searchQuery, addToPlaylist }) => {
         <td>{item.albumName.replace(/["]+/g, "")}</td>
         {/* <td>{item.uri}</td> */}
         <td>
-          <button
-            className="greyBtn"
-            onClick={() => addToPlaylist(item)}
-          >
-            Add
+          <button className="circle" onClick={() => addToPlaylist(item)}>
+            <FontAwesomeIcon icon={faPlus} size="lg" />
           </button>
         </td>
       </tr>

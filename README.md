@@ -13,7 +13,7 @@ Welcome to the Jammming Bananas Spotify Playlist Creator! This web application a
 1. Click the "Sign into Spotify" button to log in with your Spotify account. This will grant the application permission to access and alter your Spotify data.
 2. After allowing access, you will be redirected back to the Jammming Bananas website.
 3. Use the search bar to find songs you want to add to your playlist. Enter the name of a song and click "Search."
-4. The search results will appear on the left side of the page under the Search Results section. Select the song(s) you want to add by clicking the "Add" button.
+4. The search results will appear on the left side of the page under the Search Results section. Select the song(s) you want to add by clicking the "+" button.
 5. Continue searching and adding songs until your playlist is complete.
 6. Name your playlist by typing in the "Name your playlist here" field.
 7. Click the "Save to Spotify" button to add your new playlist to your Spotify account.

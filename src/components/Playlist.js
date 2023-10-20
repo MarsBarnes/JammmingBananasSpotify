@@ -1,20 +1,22 @@
 import React from "react";
 import NamePlaylist from "./NamePlaylist";
 import SaveToSpotifyButton from "./SaveToSpotifyButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const Playlist = ({ tracks, removeFromPlaylist }) => {
 
   const [playlistname, setplaylistname] = React.useState("");
 
-  const resultList = tracks.map((item) => (
-    <tr key={item.id}>
+  const resultList = tracks.map((item, i) => (
+    <tr key={i}>
       <td>{item.trackName.replace(/["]+/g, "")}</td>
       <td>{item.artistName.replace(/["]+/g, "")}</td>
       <td>{item.albumName.replace(/["]+/g, "")}</td>
       {/* <td>{item.uri}</td> */}
       <td>
-        <button className="greyBtn" onClick={() => removeFromPlaylist(item)}>
-          Remove
+        <button className="circle" onClick={() => removeFromPlaylist(i)}>
+          <FontAwesomeIcon icon={faMinus} size="lg" />
         </button>
       </td>
     </tr>

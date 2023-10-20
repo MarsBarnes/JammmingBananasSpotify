@@ -1,6 +1,8 @@
 /* GLOBAL STYLES */
 html {
   width: 100%;
+    
+
 }
 body {
   text-align: center;
@@ -65,6 +67,16 @@ main {
   background-color: #8a8a8a;
   border-color: #8a8a8a;
 }
+.circle {
+  color: white;
+  background-color: #5c5c5c;
+  border-style: none;
+  border-radius: 50%;
+}
+.circle:hover {
+  background-color: #8a8a8a;
+  border-color: #8a8a8a;
+}
 .links {
   display: inline-block;
   padding: 10px 20px;
@@ -89,10 +101,10 @@ main {
   background-color: #1ed760;
 }
 
-.removeSpotifyHyperlink{
-    text-decoration: none;
-    color: black;
-  }
+.removeSpotifyHyperlinkStyling {
+  text-decoration: none;
+  color: black;
+}
 
 .signin {
   margin: 10px;
@@ -163,13 +175,17 @@ input:focus {
   color: black;
 }
 
-.mobileMenu{
+.mobileMenu {
   display: none;
 }
 
-.menuBtn{
+.menuBtn {
   display: none;
-} 
+}
+
+.collapsedMenu {
+  display: flex;
+}
 
 /* responsivity */
 
@@ -180,23 +196,25 @@ input:focus {
   }
   .navbar {
     display: grid;
-    grid-template-areas: "a b"
-                        "c c"
-                        "d d"
-                        "e e";
+    grid-template-areas:
+      "a b"
+      "c c";
+    overflow: hidden; /* This ensures that anything beyond max-height is hidden */
   }
-  .gridAreaA{
+  .gridAreaA {
     grid-area: a;
     margin-left: 10px;
-  }.gridAreaB{
+  }
+  .gridAreaB {
     grid-area: b;
     margin-right: 0px;
-  }.gridAreaC{
-    grid-area: c;    
-  }.gridAreaD{
-    grid-area: d;
-  }.gridAreaE{
-    grid-area: e;
+  }
+  .gridAreaC {
+    grid-area: c;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .links {
     margin-bottom: 10px;
@@ -220,28 +238,34 @@ input:focus {
     max-width: 20vw;
     margin: 0;
   }
-  .mobileMenu{
-  display: inline-block;
-  background-color: transparent;
-} .menuBtn{
-  display: block;
-  padding: 8px;
-  color: white;
-  background-color: transparent;
-  border-style: none;
-  border-radius: 100px;
-  margin: 10px;
-} 
-.titleMenu{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-} .expandedMenu {
-  display: none;
-} .collapsedMenu {
-  display: show;
+  .mobileMenu {
+    display: inline-block;
+    background-color: transparent;
+  }
+  .menuBtn {
+    display: block;
+    padding: 8px;
+    color: white;
+    background-color: transparent;
+    border-style: none;
+    border-radius: 100px;
+    margin: 10px;
+  }
+  .titleMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+  }
+  .expandedMenu {
+    max-height: 500px;
+    opacity: 1;
+  }
+  .collapsedMenu {
+    max-height: 0;
+    opacity: 0;
+    & a {
+      pointer-events: none;
+    }
+  }
 }
-
-}
-

@@ -18,10 +18,10 @@ function App() {
     setTracks((prevTracks) => [...prevTracks, track]);
   };
 
-  const removeFromPlaylist = (track) => {
+  const removeFromPlaylist = (i) => {
     setTracks((prevTracks) => {
       const updatedTracks = prevTracks.filter(
-        (prevTrack) => prevTrack.id !== track.id
+        (_prevTrack, index) =>index !== i
       );
       return updatedTracks;
     });
@@ -29,7 +29,8 @@ function App() {
 
   const [isMenuExpanded, setIsMenuExpanded] = useState(false);
 
-  const handleMenuToggle = () => {
+  const handleMenuToggle = (e) => {
+    e.preventDefault();
     setIsMenuExpanded(!isMenuExpanded);
   };
 
@@ -41,27 +42,29 @@ function App() {
         <h3 className="p-2 flex-grow-1 bd-highlight leftaligntext gridAreaA">
           Jammming
         </h3>
-        <button onClick={handleMenuToggle} className= "menuBtn">
+        <button onClick={handleMenuToggle} className="menuBtn">
           <FontAwesomeIcon
             icon={faBars}
             size="xl"
             className="mobileMenu gridAreaB"
           />
         </button>
+        <div className={`${menuClassName} gridAreaC`}>
           <a
             href="https://marsbarnes.github.io/Portfolio/"
-          className={menuClassName + " links greyBtn gridAreaC"}
+            className="links greyBtn"
           >
             To Mars' Portfolio
           </a>
           <a
-          href="https://github.com/MarsBarnes/JammmingBananasSpotify"
-          className={menuClassName + " links greyBtn gridAreaD"}
+            href="https://github.com/MarsBarnes/JammmingBananasSpotify"
+            className="links greyBtn"
           >
             To GitHub Repository
           </a>
-        <SignInButton menuClassName={menuClassName} />
-        {/* <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} /> */}
+          <SignInButton />
+            {/* <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} /> */}
+        </div>
       </nav>
       <main className="main">
         <Tracklist
