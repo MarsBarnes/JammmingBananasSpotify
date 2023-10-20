@@ -85,8 +85,15 @@ const Tracklist = ({ setSearchQuery, searchQuery, addToPlaylist }) => {
               <th></th>
             </tr>
           </thead>
-          {resultList ? <tbody>{resultList}</tbody> : <></>}
-          {/* <tbody>{resultList}</tbody> */}
+          {resultList.length ? (
+            <tbody>{resultList}</tbody>
+          ) : (
+            <tbody>
+              <tr>
+                <td colSpan="4">Search for results</td>
+              </tr>
+            </tbody>
+          )}
         </table>
       </div>
     </>

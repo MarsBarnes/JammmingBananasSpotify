@@ -29,6 +29,10 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter" || searchButtonClicked) {
+      const accessToken = findAccessToken();
+      if (!accessToken) {
+        toast("Sign into Spotify to search");
+      }
       setSearchQuery(messageBeingTyped);
     }
   };

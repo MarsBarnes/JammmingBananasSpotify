@@ -12,20 +12,23 @@ export const data = {
   redirectUri: window.location,
 };
 
-export default function SignInButton() {
+export default function SignInButton({ menuClassName }) {
   const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${data.clientId}&redirect_uri=${data.redirectUri}&scope=playlist-modify-public,playlist-modify-private`;
   const accessToken = findAccessToken();
 
   if (accessToken) {
-    return <div className="signin">You are logged in!</div>;
+    return (
+      <div className={menuClassName + " signin gridAreaE "}>
+        You are logged in!
+      </div>
+    );
   } else {
     return (
-      <div>
-        <a className="newSignIn" href={url}>
+      <div className={menuClassName + " gridAreaE newSignIn"}>
+        <a className="removeSpotifyHyperlink" href={url}>
           Sign into Spotify
         </a>
       </div>
     );
   }
 }
-

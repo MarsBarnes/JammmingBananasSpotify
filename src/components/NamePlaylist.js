@@ -1,62 +1,64 @@
-// import React from "react";
-
-// export default function NamePlaylist({playlistname, setplaylistname}) {
-  
-//   const inputRef = React.useRef(null);
-
-//   function handleChange(event) {
-//     setplaylistname(event.target.value);
-//   }
-//   function handleClick() {
-//     inputRef.current.focus();
-//   }
-
-//   return (
-//     <div className="NamePlaylist">
-//       <input
-//         onChange={handleChange}
-//         type="text"
-//         placeholder="Name your playlist here!"
-//         name="name"
-//         value={playlistname}
-//         className="h1"
-//         ref={inputRef}
-//       ></input>
-//       <span className="material-symbols-outlined" onClick={handleClick}>
-//         {" "}
-//         edit
-//       </span>
-//     </div>
-//   );
-// }
 import React from "react";
+import { useState } from "react";
+import { findAccessToken } from "../util/getToken";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function NamePlaylist({ playlistname, setplaylistname }) {
   // const inputRef = React.useRef(null);
 
+  const [name , setName] = useState("");
+
+  const [nameButtonClicked, setNameButtonClicked] = useState(false);
+
+  const handleNameButtonClick = () => {
+    setNameButtonClicked(true);
+    setplaylistname(name);
+    setNameButtonClicked(false); // Reset the search button state after update
+    const accessToken = findAccessToken();
+    if (!accessToken) {
+      toast("Sign into Spotify to name a playlist");
+      return;
+    }
+  };
+
   function handleChange(event) {
-    setplaylistname(event.target.value);
+    setName(event.target.value);
+    // inputRef.current.focus()
   }
+
+  const handleKeyDown = (event) => {
+    
+    if (event.key === "Enter" || nameButtonClicked) {
+      const accessToken = findAccessToken();
+      if (!accessToken) {
+        toast("Sign into Spotify to name a playlist");
+      }
+      setplaylistname(name)
+    }
+  };
 
 
     return (
       <div className="NamePlaylist">
-          <input
-            type="text"
-            id="messageBeingTyped"
-            name="name"
-            placeholder="Name your playlist here!"
-            value={playlistname}
-            onChange={handleChange}
-            className="mr-sm-2 p-2 bd-highlight"
-          />
-          <button
-            type="button"
-            className="nameBtn greyBtn"
-            // onClick={handleSearchButtonClick}
-          >
-            Name
-          </button>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Name your playlist here!"
+          value={name}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          className="mr-sm-2 p-2 bd-highlight"
+          // ref="inputRef"
+        />
+        <button
+          type="button"
+          className="nameBtn greyBtn"
+          onClick={handleNameButtonClick}
+        >
+          Name
+        </button>
       </div>
     );
   }

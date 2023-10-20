@@ -7,6 +7,8 @@ import Tracklist from "./components/Tracklist";
 import SignInButton from "./util/getToken";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -25,23 +27,40 @@ function App() {
     });
   };
 
+  const [isMenuExpanded, setIsMenuExpanded] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuExpanded(!isMenuExpanded);
+  };
+
+  const menuClassName = isMenuExpanded ? "expandedMenu" : "collapsedMenu";
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
-        <h3 className="p-2 flex-grow-1 bd-highlight leftaligntext">Jammming</h3>
-        <a
-          href="https://marsbarnes.github.io/Portfolio/"
-          className="links greyBtn"
-        >
-          To Mars' Portfolio
-        </a>
-        <a
+        <h3 className="p-2 flex-grow-1 bd-highlight leftaligntext gridAreaA">
+          Jammming
+        </h3>
+        <button onClick={handleMenuToggle} className= "menuBtn">
+          <FontAwesomeIcon
+            icon={faBars}
+            size="xl"
+            className="mobileMenu gridAreaB"
+          />
+        </button>
+          <a
+            href="https://marsbarnes.github.io/Portfolio/"
+          className={menuClassName + " links greyBtn gridAreaC"}
+          >
+            To Mars' Portfolio
+          </a>
+          <a
           href="https://github.com/MarsBarnes/JammmingBananasSpotify"
-          className="links greyBtn"
-        >
-          To GitHub Repository
-        </a>
-        <SignInButton />
+          className={menuClassName + " links greyBtn gridAreaD"}
+          >
+            To GitHub Repository
+          </a>
+        <SignInButton menuClassName={menuClassName} />
         {/* <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} /> */}
       </nav>
       <main className="main">

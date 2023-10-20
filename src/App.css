@@ -84,11 +84,15 @@ main {
   color: black;
   font-weight: bold;
   border-radius: 100px;
-  padding: 10px 20px;
 }
 .newSignIn:hover {
   background-color: #1ed760;
 }
+
+.removeSpotifyHyperlink{
+    text-decoration: none;
+    color: black;
+  }
 
 .signin {
   margin: 10px;
@@ -159,6 +163,14 @@ input:focus {
   color: black;
 }
 
+.mobileMenu{
+  display: none;
+}
+
+.menuBtn{
+  display: none;
+} 
+
 /* responsivity */
 
 @media screen and (max-width: 800px) {
@@ -167,8 +179,24 @@ input:focus {
     width: 100vw;
   }
   .navbar {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas: "a b"
+                        "c c"
+                        "d d"
+                        "e e";
+  }
+  .gridAreaA{
+    grid-area: a;
+    margin-left: 10px;
+  }.gridAreaB{
+    grid-area: b;
+    margin-right: 0px;
+  }.gridAreaC{
+    grid-area: c;    
+  }.gridAreaD{
+    grid-area: d;
+  }.gridAreaE{
+    grid-area: e;
   }
   .links {
     margin-bottom: 10px;
@@ -192,6 +220,28 @@ input:focus {
     max-width: 20vw;
     margin: 0;
   }
+  .mobileMenu{
+  display: inline-block;
+  background-color: transparent;
+} .menuBtn{
+  display: block;
+  padding: 8px;
+  color: white;
+  background-color: transparent;
+  border-style: none;
+  border-radius: 100px;
+  margin: 10px;
+} 
+.titleMenu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+} .expandedMenu {
+  display: none;
+} .collapsedMenu {
+  display: show;
+}
 
 }
 

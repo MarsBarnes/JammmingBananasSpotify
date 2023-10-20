@@ -39,7 +39,15 @@ const Playlist = ({ tracks, removeFromPlaylist }) => {
               <th></th>
             </tr>
           </thead>
-          <tbody>{resultList}</tbody>
+          {resultList.length ? (
+            <tbody>{resultList}</tbody>
+          ) : (
+            <tbody>
+              <tr>
+                <td colSpan="4">Add songs from the search</td>
+              </tr>
+            </tbody>
+          )}
         </table>
         <SaveToSpotifyButton tracks={tracks} playlistname={playlistname} />
       </div>
